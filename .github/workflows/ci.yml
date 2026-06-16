@@ -1,0 +1,22 @@
+name: CI Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Kod
+        uses: actions/checkout@v4
+
+      - name: Semak Fail Projek
+        run: |
+          test -f index.html
+          test -f daftar.html
+          test -f login.html
+          test -f carian.html
